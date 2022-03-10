@@ -1,0 +1,90 @@
+.toolbar{
+    position: absolute;
+    top: 0;
+    background-color: #383c44;
+    color: #c7c9c9;
+    height: 5vh;
+    width: 100vw;
+}
+.project-title{
+    margin-left: 16px;
+}
+.mdcontainer{
+    position: absolute;
+    top: 5vh;
+    height: 95vh;
+    width: 100vw;
+}
+.content{
+    background-color: white;
+    margin: 0px;
+    padding: 1vw;
+
+}
+.sidebar{
+    background-color: #eff0f0;
+    width: 14vw;
+    padding-top: 1vw;
+    font-size: medium;
+}
+.card{
+    padding: 16px;
+    margin: 8px;
+}
+.card-title{
+    font-weight: bold;
+    color: #383c44;
+    padding-top: 8px;
+    margin-bottom: 2vh;
+}
+table {
+    border-collapse: collapse;
+    color: #383c44;
+    background-color: #f4f4f4;
+    width: 100%;
+
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    width: 50vw;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: white;
+}
+h1{
+    margin-bottom: 0.5vh;
+}
+.busca{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: medium;    
+    padding: 8px;
+}
+.botao{
+    height: 40px;
+    width: 40px;
+    align-content: center;
+    justify-content: center;
+    padding: 8px !important;
+    margin-bottom: 16px;
+    background-color: #077edc;
+}
+.icone{
+    margin-right: 6px;
+}
+.link{
+    text-decoration: none;
+    color: #909aab;
+}
+li{
+    color: #077edc;
+    font-weight: 500;
+}
+::ng-deep .mat-grid-tile-content{
+    justify-content: flex-start !important ;
+    align-items: flex-start !important;
+}

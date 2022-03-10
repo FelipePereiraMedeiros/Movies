@@ -1,0 +1,112 @@
+<p>
+  <mat-toolbar class="toolbar">
+    <span class="project-title"> Frontend Angular Test</span>
+  </mat-toolbar>
+  <mat-drawer-container class="mdcontainer">
+    <mat-drawer class="sidebar" mode="side" opened>
+      <ul style="list-style: none;">
+        <li><a>Dashboard</a></li>
+        <li ><a class="link" routerLink="../movielist">List</a></li>
+      </ul>
+    </mat-drawer>
+    <mat-drawer-content class="content">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-card class="card">
+            <mat-card-title class="card-title">List years with multiple winners</mat-card-title>
+            <table>
+              <tr>
+                <th>Year</th>
+                <th>Win Count</th>
+              </tr>
+              <tr *ngFor="let year of winnerYears!.years">
+                <td>{{year.year}}</td>
+                <td>{{year.winnerCount}}
+              </tr>
+            </table>
+          </mat-card>
+        </div>
+        <div class="col-md-6">
+          <mat-card class="card">
+            <mat-card-title class="card-title">Top 3 studios with winners</mat-card-title>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Win Count</th>
+              </tr>
+              <tr *ngFor="let studio of studios!.studios  | slice:0:3;">
+                <td>{{studio.name}}</td>
+                <td>{{studio.winCount}}
+              </tr>
+            </table>
+          </mat-card>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-card class="card">
+            <mat-card-title class="card-title">Producers with longest and shortest interval between wins</mat-card-title>
+            <h1>Maximum</h1>
+            <table>
+              <tr>
+                <th>Producer</th>
+                <th>Interval</th>
+                <th>Previous Year</th>
+                <th>Following Year</th>
+              </tr>
+              <tr *ngFor="let producer of interval!.max  | slice:0:1;">
+                <td>{{producer.producer}}</td>
+                <td>{{producer.interval}}</td>
+                <td>{{producer.previousWin}}</td>
+                <td>{{producer.followingWin}}</td>
+              </tr>
+            </table>
+            <h1 style="margin-top: 1vh;">Minimum</h1>
+            <table>
+              <tr>
+                <th>Producer</th>
+                <th>Interval</th>
+                <th>Previous Year</th>
+                <th>Following Year</th>
+              </tr>
+              <tr *ngFor="let producer of interval!.min  | slice:0:1;">
+                <td>{{producer.producer}}</td>
+                <td>{{producer.interval}}</td>
+                <td>{{producer.previousWin}}</td>
+                <td>{{producer.followingWin}}</td>
+              </tr>
+            </table>
+          </mat-card>
+        </div>
+        <div class="col-md-6">
+          <mat-card class="card">
+            <mat-card-title class="card-title">List of movie winners by year</mat-card-title>
+            <div class="row">
+              <div class="col-md-11">
+                <input class="busca" placeholder="Search by year" type="number" [(ngModel)]="yearfilter" (keydown.enter)="searchByYear()">
+              </div>
+              <div class="col-md-1">
+                <button (click)="searchByYear()" type="button" class="btn btn-primary botao">
+                  <i class="material-icons">search</i>
+                </button>
+              </div>
+            </div>
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Year</th>
+                <th>Title</th>
+              </tr>
+              <tr *ngFor="let winner of byyear">
+                <td>{{winner.id}}</td>
+                <td>{{winner.year}}</td>
+                <td>{{winner.title}}</td>
+              </tr>
+            </table>
+          </mat-card>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  </p>
+

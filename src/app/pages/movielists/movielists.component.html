@@ -1,0 +1,59 @@
+<p>
+    <mat-toolbar class="toolbar">
+      <span class="project-title"> Frontend Angular Test</span>
+    </mat-toolbar>
+    <mat-drawer-container class="mdcontainer">
+      <mat-drawer class="sidebar" mode="side" opened>
+        <ul style="list-style: none;">
+          <li><a class="link" routerLink="../dashboard">Dashboard</a></li>
+          <li ><a>List</a></li>
+        </ul>
+      </mat-drawer>
+      <mat-drawer-content class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <mat-card class="card">
+              <mat-card-title class="card-title">List movies</mat-card-title>
+              <table>
+                <tr>
+                  <th class="tableheader">ID</th>
+                  <th class="tableheader">
+                    Year
+                    <div class="col-md-12">
+                      <input (change)="filterTable()" class="busca" placeholder="Filter by year" type="number" [(ngModel)]="yearfilter">
+                    </div>
+                  </th>
+                  <th class="tableheader">Title</th>
+                  <th class="tableheader">
+                    Winner?
+                    <div class="col-md-12">
+                      <select (change)="filterTable()" class="buscawinner" placeholder="Winner?" [(ngModel)]="winner">
+                        <option value="-1">Yes/No</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                      </select>
+                    </div>
+                  </th>
+                </tr>
+                <tr *ngFor="let movie of moviedata.content | paginate: { itemsPerPage: this.moviedata.pageable.pageSize , currentPage: tablepage, totalItems:  this.moviedata.totalElements}">
+                  <td>{{movie.id}}</td>
+                  <td>{{movie.year}}</td>
+                  <td>{{movie.title}}</td>
+                  <td>{{movie.winner? "Yes" : "No"}}</td>
+                </tr>
+              </table>
+              <div class="border">
+                <pagination-controls
+                [responsive]="true" 
+                previousLabel=""
+                nextLabel="" 
+                class="my-pagination" 
+                (pageChange)="tablepage = $event; this.moviedata.pageable.pageNumber = $event -1; filterTable();"
+                [maxSize]="7">
+              </pagination-controls></div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+    </p>
