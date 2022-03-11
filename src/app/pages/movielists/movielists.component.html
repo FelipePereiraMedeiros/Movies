@@ -20,14 +20,14 @@
                   <th class="tableheader">
                     Year
                     <div class="col-md-12">
-                      <input (change)="filterTable()" class="busca" placeholder="Filter by year" type="number" [(ngModel)]="yearfilter">
+                      <input (change)="tablepage = 1; this.moviedata.pageable.pageNumber = 0; filterTable();" class="busca" placeholder="Filter by year" type="number" [(ngModel)]="yearfilter">
                     </div>
                   </th>
                   <th class="tableheader">Title</th>
                   <th class="tableheader">
                     Winner?
                     <div class="col-md-12">
-                      <select (change)="filterTable()" class="buscawinner" placeholder="Winner?" [(ngModel)]="winner">
+                      <select (change)="tablepage = 1; this.moviedata.pageable.pageNumber = 0; filterTable()" class="buscawinner" placeholder="Winner?" [(ngModel)]="winner">
                         <option value="-1">Yes/No</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
